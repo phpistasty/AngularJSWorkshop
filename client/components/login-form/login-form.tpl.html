@@ -1,0 +1,27 @@
+<form name="loginForm" class="login-form automargin" ng-if="!ctrl.loggedIn">
+
+    <div class="login-form__error" ng-if="ctrl.error">
+        {{ctrl.error}}
+    </div>
+
+    <div class="login-form__control">
+        <label class="login-form__field automargin">
+            Username:
+            <input type="text" ng-model="ctrl.username" autocomplete="username">
+        </label>
+    </div>
+
+    <div class="login-form__control">
+        <label class="login-form__field automargin">
+            Password:
+            <input type="password" ng-model="ctrl.password" autocomplete="current-password">
+        </label>
+    </div>
+
+    <div class="login-form__control">
+        <button type="button" class="automargin" ng-click="ctrl.submitLogin(ctrl.username, ctrl.password)">
+            Login
+        </button>
+    </div>
+
+</form>
