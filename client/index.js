@@ -1,6 +1,13 @@
 import angular from 'angular';
 
-angular.module('app', [])
+import 'reset-css';
+import './index.scss';
+
+import login from './components/login-form';
+
+
+
+angular.module('app', [ login ])
   .controller('AppController', function() {
     this.name = '';
   });
