@@ -11,7 +11,13 @@ class LoginFormController {
     if (username.length && password === "password") {
       this.error = '';
       this.loggedIn = true;
-      this.LoginService.setUserProfile({ username });
+      this.LoginService.loginUser({username, password})
+        .then((profile)=>{
+
+        })
+        .catch((err)=>{
+          this.error = err.error;
+        });
     } else {
       this.error = 'Invalid Password';
     }

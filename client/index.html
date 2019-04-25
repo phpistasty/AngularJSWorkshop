@@ -7,11 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My AngularJS App</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--<script type="text/javascript">-->
+        <!--document.write("<base href='http://" + document.location.host + "' />");-->
+    <!--</script>-->
+    <base href="/" />
     <script src="app.js"></script>
 </head>
 <body>
     <div ng-app="app">
-        <login-form />
+        <div ui-view="main"></div>
     </div>
 </body>
 </html>

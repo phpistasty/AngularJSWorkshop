@@ -9,14 +9,14 @@ To Run:
 1. `npm run dev`
 2. Open `http://localhost:8080/`
 
-Step 3:
+Step 4:
 
-* Webpack dev server proxy api calls
-* Simple express server to check password
-* LoginService has an http call
+* Service uses authentication call
+* Router has abstract routes for public and private app locations
+* Router defaults to login if none is provided
 
 Next todos:
 
-* Change the controller to use the service
+* Create a simple todo url and view for the app
+* Add todo url as a private view
 * Store and check for an authentication cookie on reload
-* Setup basic routing to show `/login` and `/home` page
