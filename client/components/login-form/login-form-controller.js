@@ -7,6 +7,7 @@ class LoginFormController {
   }
 
   submitLogin(username, password) {
+
     if (username.length && password === "password") {
       this.error = '';
       this.loggedIn = true;

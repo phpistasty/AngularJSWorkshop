@@ -1,6 +1,20 @@
 class LoginService {
-  constructor() {
+  constructor($q, $http) {
     this._userProfile = '';
+    this.$q = $q;
+    this.$http = $http;
+  }
+
+  loginUser({username, password}) {
+    return this.$q((resolve, reject) => {
+      this.$http.post('/api/login', {username, password})
+        .then((res)=>{
+          resolve(res.data);
+        })
+        .catch((res) => {
+          reject(res.data);
+        });
+    })
   }
 
   setUserProfile(profile) {
@@ -12,4 +26,8 @@ class LoginService {
   }
 }
 
-export default LoginService;
+export default [
+  '$q',
+  '$http',
+  LoginService,
+];

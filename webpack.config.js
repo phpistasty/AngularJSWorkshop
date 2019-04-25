@@ -55,8 +55,17 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'client'),
+    hot: true,
     historyApiFallback: {
       index: 'index.html'
+    },
+    proxy: {
+      '/api': 'http://localhost:8081/',
     }
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin({
+      multiStep: true
+    })
+  ]
 };

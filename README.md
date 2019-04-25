@@ -9,10 +9,14 @@ To Run:
 1. `npm run dev`
 2. Open `http://localhost:8080/`
 
-Step 2:
+Step 3:
 
-* Adding of the login directive.
-    * Basic controller with static password check
-    * Error text
-* Adding of SASS to style components
-* Assembling Angular module
+* Webpack dev server proxy api calls
+* Simple express server to check password
+* LoginService has an http call
+
+Next todos:
+
+* Change the controller to use the service
+* Store and check for an authentication cookie on reload
+* Setup basic routing to show `/login` and `/home` page
