@@ -15,6 +15,7 @@ module.exports = {
   optimization: {
     minimize: false,
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -28,6 +29,7 @@ module.exports = {
             ],
             plugins: [
               '@babel/plugin-proposal-export-default-from',
+              'transform-function-bind',
             ],
           },
         },

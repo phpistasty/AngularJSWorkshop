@@ -9,13 +9,16 @@ To Run:
 1. `npm run dev`
 2. Open `http://localhost:8080/`
 
-Step 5:
+Step 6:
 
-* Create a simple todo url and view for the app
-* Add todo url as a private view
-* Store and check for an authentication cookie on reload
-
-Next todos:
 * Create todo list UI
 * Create form to add todo items to todo list
 * Allow a todo item to be marked as complete
+
+Next todos:
+
+* Create todo BREAD endpoints
+* Utilize BREAD endpoints
+* Edit task text
+* Add some basic styles for todo directives
+

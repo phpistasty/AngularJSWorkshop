@@ -37,8 +37,16 @@ angular.module('app', [ uiRouter, ngCookies, login, todos ])
       url: '/todo',
       views: {
         'main@': {
-          template: '<todos />'
+          template: '<todos list="todos" />',
+          controller: ['$scope', 'todos', ($scope, {todos}) => {
+            $scope.todos = todos;
+          }]
         }
+      },
+      resolve: {
+        todos: ['TodoService', (TodoService) => {
+          return TodoService.browseTodos();
+        }],
       }
     })
     .state('app.public', {

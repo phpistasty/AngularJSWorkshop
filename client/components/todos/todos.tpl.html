@@ -1,4 +1,6 @@
-<div>
+<div class="todos">
     <h1>Todos:</h1>
-    <!-- todo list here-->
+    <todo-form on-submit="ctrl.onAdd(task)"></todo-form>
+    <span>{{ctrl.list | json}}</span>
+    <todo-list list="ctrl.list" on-change="ctrl.onUpdate(evtData)"></todo-list>
 </div>

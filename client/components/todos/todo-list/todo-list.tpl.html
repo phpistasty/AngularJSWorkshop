@@ -1,0 +1,5 @@
+<ul>
+    <li ng-repeat="item in ctrl.list track by item.id" >
+        <todo-list-item item="item" on-change="ctrl.onUpdate($index, evtData)" />
+    </li>
+</ul>
