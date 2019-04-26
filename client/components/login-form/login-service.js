@@ -1,8 +1,15 @@
 class LoginService {
-  constructor($q, $http) {
+  constructor($q, $http, $cookies) {
     this._userProfile = {};
     this.$q = $q;
     this.$http = $http;
+    this.$cookies = $cookies;
+
+    const username = this.$cookies.get('username');
+    if (username) {
+      this.setUserProfile({ username });
+    }
+
   }
 
   loginUser({username, password}) {
@@ -15,19 +22,20 @@ class LoginService {
         .catch((res) => {
           reject(res.data);
         });
-    })
+    });
   }
 
   getAuthorization() {
-    if(this._userProfile && this._userProfile.name) {
-      this.$q.when(this._userProfile);
+    if(this._userProfile && this._userProfile.username) {
+      return this.$q.when(this._userProfile);
     } else {
-      this.$q.reject({});
+      return this.$q.reject({});
     }
   }
 
   setUserProfile(profile) {
-   this._userProfile = profile;
+    this.$cookies.put('username', profile.username);
+    this._userProfile = profile;
   }
 
   getUserProfile() {
@@ -38,5 +46,6 @@ class LoginService {
 export default [
   '$q',
   '$http',
+  '$cookies',
   LoginService,
 ];

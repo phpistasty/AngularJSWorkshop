@@ -1,7 +1,8 @@
 class LoginFormController {
 
-  constructor(LoginService) {
+  constructor($state, LoginService) {
     this.LoginService = LoginService;
+    this.$state = $state;
     this.error = '';
     this.loggedIn = false;
   }
@@ -12,8 +13,8 @@ class LoginFormController {
       this.error = '';
       this.loggedIn = true;
       this.LoginService.loginUser({username, password})
-        .then((profile)=>{
-
+        .then(()=>{
+          this.$state.go('app.secure.todos');
         })
         .catch((err)=>{
           this.error = err.error;
@@ -26,6 +27,7 @@ class LoginFormController {
 }
 
 export default [
+  '$state',
   'LoginService',
 
   LoginFormController,
